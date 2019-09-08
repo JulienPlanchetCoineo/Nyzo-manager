@@ -136,7 +136,7 @@ class Miner:
 		else:
 			stdout_list = stdout.read().decode("utf-8").split(' ')
 			print(stdout_list)
-			report["cpu"] = float(stdout_list[1])*100
+			report["cpu"] = (float(stdout_list[1])*100)/100
 
 		stdin, stdout, stderr = ssh_session.exec_command(self.version_command, timeout=Miner.CMD_TIMEOUT)
 		stderr_str = stderr.read().decode("utf-8")
